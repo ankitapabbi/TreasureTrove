@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class GameView extends SurfaceView implements SurfaceHolder.Callback {
+public class GameViewOne extends SurfaceView implements SurfaceHolder.Callback {
 
     private float measuredWidth;
 
@@ -63,21 +63,21 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private List<Pipe> pipeList;
     private static final float pipeVelocity = 3.0f;
 
-    public GameView(Context context) {
+    public GameViewOne(Context context) {
         super(context);
 
         // Initialize
         init();
     }
 
-    public GameView(Context context, AttributeSet a) {
+    public GameViewOne(Context context, AttributeSet a) {
         super(context, a);
 
         // Initialize
         init();
     }
 
-    public GameView(Context context, AttributeSet a, int b) {
+    public GameViewOne(Context context, AttributeSet a, int b) {
         super(context, a, b);
 
         // Initialize
@@ -107,7 +107,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         paint.setAntiAlias(true);
 
         // For the bird
-        bitmap = getBitmapFromVectorDrawable(getContext(), R.drawable.alahdin);
+        bitmap = getBitmapFromVectorDrawable(getContext(), R.drawable.aladdin_with_monkey);
         bitmap = Bitmap.createScaledBitmap(bitmap, 200, 200, false);
 
         // For the pipes
@@ -240,7 +240,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                         (positionY >= measuredHeight - pipe.getHeight() - 50.0f / 2.0f) ) {
                     lives--;
                     Context context = getContext();
-                    ((GameActivity) context).updateLives(lives);
+                    ((GameActivityOne) context).updateLives(lives);
 
                     return false;
                 } else {
@@ -251,14 +251,15 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
                         // Update the score in MainActivity
                         Context context = getContext();
-                        if (context instanceof GameActivity) {
-                            ((GameActivity) context).updateScore(score);
-                            ((GameActivity) context).playScoreMusic();
+                        if (context instanceof GameActivityOne) {
+                            ((GameActivityOne) context).updateScore(score);
+                            ((GameActivityOne) context).playScoreMusic();
                         }
                         if(score>5){
                             Intent intent = new Intent(getContext(), TreasureUnlock.class);
-                            intent.putExtra("level",1);
+                            intent.putExtra("level",2);
                             getContext().startActivity(intent);
+
 
 
                         }
