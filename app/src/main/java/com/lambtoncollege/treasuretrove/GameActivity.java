@@ -16,6 +16,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -124,6 +125,8 @@ public class GameActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_game);
 
+        Log.d("level","1");
+        Toast.makeText(getApplicationContext(),"level 1 reached",Toast.LENGTH_LONG);
         livesText = (TextView)findViewById(R.id.lives);
 
 
@@ -136,6 +139,8 @@ public class GameActivity extends AppCompatActivity {
 
 
         // Get the mode of the game from the StartingActivity
+        String checkmode = getIntent().getStringExtra("Mode");
+        Log.d("check",checkmode);
         if (getIntent().getStringExtra("Mode").equals("Touch")) {
             gameMode = TOUCH_MODE;
         } else {

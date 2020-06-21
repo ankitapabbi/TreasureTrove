@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaPlayer;
@@ -16,6 +17,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -123,8 +125,12 @@ public class GameActivityOne extends AppCompatActivity {
 
         setContentView(R.layout.activity_game_one);
 
-        livesText = (TextView)findViewById(R.id.lives);
+        Intent intent = getIntent();
+        String mode = intent.getStringExtra("Mode");
 
+        livesText = (TextView)findViewById(R.id.lives);
+        Toast.makeText(getApplicationContext(),"level 2 reached",Toast.LENGTH_LONG);
+        Log.d("level","2");
 
         // Initialize the private views
         initViews();
@@ -135,12 +141,14 @@ public class GameActivityOne extends AppCompatActivity {
 
 
         // Get the mode of the game from the StartingActivity
-        if (getIntent().getStringExtra("Mode").equals("Touch")) {
-            gameMode = TOUCH_MODE;
-        } else {
-            gameMode = VOICE_MODE;
+        if(!mode.isEmpty()) {
+            if (mode.equals("Touch")) {
+                gameMode = TOUCH_MODE;
+            } else {
+                gameMode = VOICE_MODE;
 
-            volumeThreshold = getIntent().getIntExtra("VolumeThreshold", 50);
+                volumeThreshold = getIntent().getIntExtra("VolumeThreshold", 50);
+            }
         }
 
         // Set the Timer

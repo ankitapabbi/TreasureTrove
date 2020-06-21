@@ -45,24 +45,31 @@ public class TreasureUnlock extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                switch (whichLevel){
-                    case 1 :
-                        Intent intent = new Intent(getApplicationContext(),GameActivityOne.class);
-                        startActivity(intent);
-                        finish();
-                        break;
+                Intent intent = new Intent(getApplicationContext(),GameActivityOne.class);
+                intent.putExtra("Mode", "Touch");
+                startActivity(intent);
+                finish();
 
-                    case 2:
-                        Toast.makeText(getApplicationContext(),"level 2",Toast.LENGTH_LONG);
-                        break;
 
-                    case 3:
-                        Toast.makeText(getApplicationContext(),"level 3",Toast.LENGTH_LONG);
-                        break;
-
-                    default:
-                        Toast.makeText(getApplicationContext(),"something not well",Toast.LENGTH_LONG);
-            }
+//                switch (whichLevel){
+//                    case 1 :
+////                        Intent intent = new Intent(getApplicationContext(),GameActivityOne.class);
+////                        startActivity(intent);
+////                        finish();
+////                        break;
+//                        Toast.makeText(getApplicationContext(),"level 1",Toast.LENGTH_LONG);
+//
+//                    case 2:
+//                        Toast.makeText(getApplicationContext(),"level 2",Toast.LENGTH_LONG);
+//                        break;
+//
+//                    case 3:
+//                        Toast.makeText(getApplicationContext(),"level 3",Toast.LENGTH_LONG);
+//                        break;
+//
+//                    default:
+//                        Toast.makeText(getApplicationContext(),"something not well",Toast.LENGTH_LONG);
+//            }
 
 
             }
@@ -78,9 +85,25 @@ public class TreasureUnlock extends AppCompatActivity {
         restarLevel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),GameActivity.class);
-                startActivity(intent);
-                finish();
+                switch (whichLevel){
+                    case 1 :
+                        Intent intent = new Intent(getApplicationContext(),GameActivity.class);
+                        intent.putExtra("Mode", "Touch");
+                        startActivity(intent);
+                        finish();
+                        break;
+
+                    case 2:
+                        Toast.makeText(getApplicationContext(),"level 2",Toast.LENGTH_LONG);
+                        break;
+
+                    case 3:
+                        Toast.makeText(getApplicationContext(),"level 3",Toast.LENGTH_LONG);
+                        break;
+
+                    default:
+                        Toast.makeText(getApplicationContext(),"something not well",Toast.LENGTH_LONG);
+                }
             }
         });
     }
