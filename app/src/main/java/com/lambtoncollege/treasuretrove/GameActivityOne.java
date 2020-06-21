@@ -141,7 +141,7 @@ public class GameActivityOne extends AppCompatActivity {
 
 
         // Get the mode of the game from the StartingActivity
-        if(!mode.isEmpty()) {
+
             if (mode.equals("Touch")) {
                 gameMode = TOUCH_MODE;
             } else {
@@ -149,7 +149,7 @@ public class GameActivityOne extends AppCompatActivity {
 
                 volumeThreshold = getIntent().getIntExtra("VolumeThreshold", 50);
             }
-        }
+
 
         // Set the Timer
         isSetNewTimerThreadEnabled = true;
