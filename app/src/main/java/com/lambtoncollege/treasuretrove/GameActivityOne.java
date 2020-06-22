@@ -83,13 +83,18 @@ public class GameActivityOne extends AppCompatActivity {
                         alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                GameActivityOne.this.restartGame();
+//                                GameActivityOne.this.restartGame();
+                                Intent intent = new Intent(getApplicationContext(),GameActivity.class);
+                                startActivity(intent);
+                                finish();
                             }
                         });
                         alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                GameActivityOne.this.onBackPressed();
+                                Intent intent = new Intent(getApplicationContext(),StartActivity.class);
+                                startActivity(intent);
+                                finish();
                             }
                         });
                         alertDialog.show();

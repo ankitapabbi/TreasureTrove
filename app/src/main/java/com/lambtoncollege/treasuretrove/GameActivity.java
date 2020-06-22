@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaPlayer;
@@ -89,7 +90,10 @@ public class GameActivity extends AppCompatActivity {
                         alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                GameActivity.this.onBackPressed();
+                               // GameActivity.this.onBackPressed();
+                                Intent intent = new Intent(getApplicationContext(),StartActivity.class);
+                                startActivity(intent);
+                                finish();
                             }
                         });
                         alertDialog.show();

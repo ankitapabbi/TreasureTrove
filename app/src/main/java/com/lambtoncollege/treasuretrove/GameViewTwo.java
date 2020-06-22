@@ -255,7 +255,7 @@ public class GameViewTwo extends SurfaceView implements SurfaceHolder.Callback {
                             ((GameActivityTwo) context).updateScore(score);
                             ((GameActivityTwo) context).playScoreMusic();
                         }
-                        if(score>5){
+                        if(score>30){
                             Intent intent = new Intent(getContext(), TreasureUnlock.class);
                             intent.putExtra("level",3);
                             getContext().startActivity(intent);

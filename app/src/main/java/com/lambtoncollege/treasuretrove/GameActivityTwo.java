@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaPlayer;
@@ -83,13 +84,19 @@ public class GameActivityTwo extends AppCompatActivity {
                         alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                GameActivityTwo.this.restartGame();
+//                                GameActivityTwo.this.restartGame();
+                                Intent intent = new Intent(getApplicationContext(),GameActivity.class);
+                                startActivity(intent);
+                                finish();
                             }
                         });
                         alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                GameActivityTwo.this.onBackPressed();
+                                //GameActivityTwo.this.onBackPressed();
+                                Intent intent = new Intent(getApplicationContext(),StartActivity.class);
+                                startActivity(intent);
+                                finish();
                             }
                         });
                         alertDialog.show();
