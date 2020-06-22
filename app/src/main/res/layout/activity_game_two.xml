@@ -28,6 +28,8 @@
             android:text="Score: "
             android:textColor="#EEC75B39"
             android:textSize="20sp"
+            android:fontFamily="@font/harngton"
+            android:textStyle="bold"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="10dp"/>
         <TextView android:id="@+id/text_view_score"
@@ -36,6 +38,8 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="5dp"
+            android:fontFamily="@font/harngton"
+            android:textStyle="bold"
             android:textColor="#EEC75B39"
             android:textSize="22sp"
             android:text="0"

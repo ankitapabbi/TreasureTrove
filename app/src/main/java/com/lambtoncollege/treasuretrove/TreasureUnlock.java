@@ -16,7 +16,7 @@ public class TreasureUnlock extends AppCompatActivity {
     Button levelChange;
     ImageView homeButton, restarLevel,unlockedObject;
     int whichLevel;
-    TextView objectunlock;
+    TextView objectunlock,youwon;
     MediaPlayer mediaPlayer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +27,7 @@ public class TreasureUnlock extends AppCompatActivity {
         restarLevel = (ImageView)findViewById(R.id.restartlevel);
         unlockedObject = (ImageView)findViewById(R.id.unlockedObject);
         objectunlock = (TextView)findViewById(R.id.objectunlock);
+        youwon = (TextView)findViewById(R.id.youwon);
         Intent intent = getIntent();
         whichLevel = intent.getIntExtra("level",0);
 
@@ -51,10 +52,11 @@ public class TreasureUnlock extends AppCompatActivity {
                 break;
 
             case 3:
-                mediaPlayer = MediaPlayer.create(this, R.raw.levelup);
+                mediaPlayer = MediaPlayer.create(this, R.raw.fireworks);
                 mediaPlayer.setLooping(false);
                 unlockedObject.setImageResource(R.drawable.jasmin);
                 objectunlock.setText("jasmin");
+                youwon.setVisibility(View.VISIBLE);
                 levelChange.setText("Play Again");
                 break;
             default:
