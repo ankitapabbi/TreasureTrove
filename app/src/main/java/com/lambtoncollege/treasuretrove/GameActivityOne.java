@@ -85,6 +85,7 @@ public class GameActivityOne extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int which) {
 //                                GameActivityOne.this.restartGame();
                                 Intent intent = new Intent(getApplicationContext(),GameActivity.class);
+                                intent.putExtra("Mode", "Touch");
                                 startActivity(intent);
                                 finish();
                             }
