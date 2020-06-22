@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".StartActivity"
-    android:background="#6EAFB6">
+    android:background="#1C35C0">
 
     <TextView
         android:layout_width="wrap_content"
@@ -17,6 +17,7 @@
         android:textStyle="bold"
         android:textColor="#fff"
         android:textSize="40sp"
+        android:fontFamily="@font/harngton"
         android:layout_marginTop="100dp"
         android:text="Tresure Trove"/>
 
@@ -34,7 +35,11 @@
             android:layout_height="wrap_content"
             android:layout_weight="1.0"
             android:textAllCaps="false"
-            android:text="Touch Control"
+            android:text="START"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:background="@drawable/custombutton"
+            android:layout_margin="10dp"
             android:onClick="goToTouchActivity" />
 
         <Button
@@ -43,6 +48,7 @@
             android:layout_weight="1.0"
             android:textAllCaps="false"
             android:text="Voice Control"
+            android:visibility="gone"
             android:onClick="goToVoiceActivity" />
 
     </LinearLayout>
@@ -60,7 +66,8 @@
         android:layout_height="wrap_content"
         android:text="Let the game be ventured..."
         android:textColor="#fff"
-        android:textSize="20sp"
+        android:textSize="30sp"
+        android:fontFamily="@font/harngton"
         android:layout_centerHorizontal="true"
       android:layout_alignBottom="@+id/title"
         />
@@ -72,6 +79,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_margin="16dp"
+        android:visibility="gone"
         android:src="@drawable/ic_volume_24dp"
         android:onClick="adjustVolumeThreshold" />
 

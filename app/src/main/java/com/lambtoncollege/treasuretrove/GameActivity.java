@@ -124,6 +124,8 @@ public class GameActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_game);
+        mediaPlayer1 = MediaPlayer.create(this,R.raw.aladdinhiphop);
+        mediaPlayer1.setLooping(true);
 
         Log.d("level","1");
         Toast.makeText(getApplicationContext(),"level 1 reached",Toast.LENGTH_LONG);
@@ -313,6 +315,7 @@ public class GameActivity extends AppCompatActivity {
         isSetNewTimerThreadEnabled = false;
 
         super.onDestroy();
+        mediaPlayer1.stop();
     }
 
     @Override
@@ -320,11 +323,13 @@ public class GameActivity extends AppCompatActivity {
         isSetNewTimerThreadEnabled = false;
 
         super.onPause();
+        mediaPlayer1.stop();
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
+        mediaPlayer1.start();
     }
 
     /**
@@ -430,6 +435,18 @@ public class GameActivity extends AppCompatActivity {
         isSetNewTimerThreadEnabled = false;
 
         super.onBackPressed();
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mediaPlayer1.start();
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mediaPlayer1.start();
     }
 
 }

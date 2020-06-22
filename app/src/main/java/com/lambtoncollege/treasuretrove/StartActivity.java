@@ -131,9 +131,17 @@ public class StartActivity extends AppCompatActivity {
         mediaPlayer.start();
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mediaPlayer.stop();
+    }
 
-
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mediaPlayer.stop();
+    }
 
     @Override
     protected void onRestart() {
