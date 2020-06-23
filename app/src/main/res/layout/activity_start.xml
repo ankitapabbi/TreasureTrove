@@ -72,6 +72,18 @@
       android:layout_alignBottom="@+id/title"
         />
 
+    <Button
+        android:id="@+id/info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="info"
+        android:textColor="#fff"
+        android:textStyle="italic"
+        android:background="@drawable/custombutton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="20dp"/>
+
     <!-- The FloatingActionButton to adjust the threshold of the voice -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"

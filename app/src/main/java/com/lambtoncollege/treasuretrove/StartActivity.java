@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.NumberPicker;
 
 public class StartActivity extends AppCompatActivity {
@@ -22,7 +23,8 @@ public class StartActivity extends AppCompatActivity {
     private static final int RECORD_AUDIO_PERMISSION_REQUEST_CODE = 0x00;
 
     private int volumeThreshold;
-
+    private AlertDialog.Builder alertDialog;
+    Button info;
     MediaPlayer mediaPlayer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,12 +35,32 @@ public class StartActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 
+        info = (Button)findViewById(R.id.info);
         mediaPlayer = MediaPlayer.create(this,R.raw.aladdinhiphop);
         mediaPlayer.setLooping(true);
 
         // Get the volume threshold
         SharedPreferences settings = getPreferences(0);
         volumeThreshold = settings.getInt("VolumeThreshold", 50);
+
+
+        info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialog = new AlertDialog.Builder(StartActivity.this);
+                alertDialog.setTitle("Treasure Trove");
+                alertDialog.setMessage("In This Game We have 3 Levels. You have to collect 10, 20, 30 points in level 1, 2, 3 respectively to reach next level. Enjoy the game. ");
+                alertDialog.setCancelable(false);
+                alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                       dialog.dismiss();
+                    }
+                });
+
+                alertDialog.show();
+            }
+        });
     }
 
 
